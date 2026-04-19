@@ -1,0 +1,25 @@
+{
+    "name": "contensio/plugin-polls",
+    "label": "Simple Polls",
+    "description": "Create polls with multiple options. One vote per IP or logged-in user. Live results shown as a bar chart after voting.",
+    "author": "Contensio",
+    "author_url": "https://contensio.com",
+    "version": "1.0.0",
+    "provider": "Contensio\\Polls\\PollsServiceProvider",
+    "autoload": {
+        "psr-4": {
+            "Contensio\\Polls\\": "src/"
+        }
+    },
+    "requires": {
+        "cms": "^2.0"
+    },
+    "menu": {
+        "placement": "tools",
+        "label": "Polls",
+        "icon": "bi-bar-chart-steps",
+        "route": "polls.index",
+        "permission": "plugins.configure"
+    },
+    "removable": true
+}

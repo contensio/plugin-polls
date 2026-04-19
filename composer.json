@@ -1,0 +1,32 @@
+{
+    "name": "contensio/plugin-polls",
+    "description": "Simple polls for Contensio — multiple options, one vote per IP/user, live results with bar chart.",
+    "type": "library",
+    "license": "AGPL-3.0-or-later",
+    "keywords": ["contensio", "plugin", "polls", "voting", "survey"],
+    "homepage": "https://contensio.com",
+    "authors": [
+        {
+            "name": "Iosif Gabriel Chimilevschi",
+            "homepage": "https://contensio.com",
+            "role": "Creator"
+        }
+    ],
+    "require": {
+        "php": "^8.2",
+        "contensio/contensio": "^2.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Contensio\\Polls\\": "src/"
+        }
+    },
+    "extra": {
+        "cms": {
+            "type": "plugin",
+            "provider": "Contensio\\Polls\\PollsServiceProvider"
+        }
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}
