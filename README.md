@@ -1,20 +1,20 @@
-# Simple Polls — Contensio Plugin
+# Simple Polls - Contensio Plugin
 
-Create polls with multiple options, enforce one vote per IP or logged-in user, and display live results as an animated bar chart — all without a page reload.
+Create polls with multiple options, enforce one vote per IP or logged-in user, and display live results as an animated bar chart - all without a page reload.
 
 ---
 
 ## Features
 
 - **Unlimited options** per poll (2–20)
-- **One vote per user** — logged-in users tracked by user ID; guests tracked by IP address
-- **Live bar chart** — results update instantly after voting via Alpine.js + `fetch`, no page reload
-- **Flexible result visibility** — show results always, only after voting, or only after the poll closes
-- **Auto-close** — set an optional end date/time; the poll stops accepting votes automatically
-- **Guest voting toggle** — optionally restrict voting to logged-in users only
-- **Admin results view** — full breakdown with vote counts and percentages
-- **Embeddable** — drop any poll into any page, post, or widget area with one line
-- **Status control** — Draft / Active / Closed
+- **One vote per user** - logged-in users tracked by user ID; guests tracked by IP address
+- **Live bar chart** - results update instantly after voting via Alpine.js + `fetch`, no page reload
+- **Flexible result visibility** - show results always, only after voting, or only after the poll closes
+- **Auto-close** - set an optional end date/time; the poll stops accepting votes automatically
+- **Guest voting toggle** - optionally restrict voting to logged-in users only
+- **Admin results view** - full breakdown with vote counts and percentages
+- **Embeddable** - drop any poll into any page, post, or widget area with one line
+- **Status control** - Draft / Active / Closed
 
 ---
 
@@ -28,8 +28,8 @@ Create polls with multiple options, enforce one vote per IP or logged-in user, a
 
 ### Vote deduplication
 
-- **Logged-in users** — enforced by a unique database constraint on `(poll_id, user_id)`. A second request hits the constraint and returns an error.
-- **Guests** — checked by IP address before inserting. One IP = one vote per poll.
+- **Logged-in users** - enforced by a unique database constraint on `(poll_id, user_id)`. A second request hits the constraint and returns an error.
+- **Guests** - checked by IP address before inserting. One IP = one vote per poll.
 - A race condition between the IP check and the insert is handled by catching the database unique constraint exception.
 
 ---
@@ -58,7 +58,7 @@ The plugin is auto-discovered. Go to **Plugins** in the admin and enable it. Mig
 
 Replace `1` with the poll's ID, which is shown on the polls list screen.
 
-The embedded widget is self-contained — it includes its own Alpine.js component and handles voting, error states, and result rendering without any additional setup.
+The embedded widget is self-contained - it includes its own Alpine.js component and handles voting, error states, and result rendering without any additional setup.
 
 **Requirements for the embed to work:**
 
@@ -158,4 +158,4 @@ Unique constraint on `(poll_id, user_id)` prevents duplicate votes from logged-i
 
 ## License
 
-AGPL-3.0-or-later — see [LICENSE](LICENSE).
+AGPL-3.0-or-later - see [LICENSE](LICENSE).

@@ -2,7 +2,7 @@
     use Contensio\Polls\Models\Poll;
     try { $pollCount = Poll::count(); } catch (\Throwable) { $pollCount = null; }
 @endphp
-<a href="{{ route('polls.index') }}"
+<a href="{{ route('contensio-polls.index') }}"
    class="block bg-white border border-gray-200 rounded-xl p-5 hover:border-ember-400 hover:shadow-sm transition-all group">
     <div class="flex items-start justify-between gap-3">
         <div class="w-10 h-10 rounded-lg bg-ember-500/10 text-ember-600 flex items-center justify-center text-xl shrink-0">

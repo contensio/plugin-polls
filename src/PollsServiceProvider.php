@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Simple Polls — Contensio plugin.
+ * Simple Polls - Contensio plugin.
  * https://contensio.com
  *
  * @copyright   Copyright (c) 2026 Iosif Gabriel Chimilevschi
@@ -15,15 +15,17 @@ use Illuminate\Support\ServiceProvider;
 
 class PollsServiceProvider extends ServiceProvider
 {
+    protected string $ns = 'contensio-polls';
+
     public function boot(): void
     {
-        $this->loadViewsFrom(__DIR__ . '/../resources/views', 'polls');
+        $this->loadViewsFrom(__DIR__ . '/../resources/views', $this->ns);
         $this->loadRoutesFrom(__DIR__ . '/../routes/web.php');
         $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
 
         // Settings hub card
         Hook::add('contensio/admin/settings-cards', function () {
-            return view('polls::partials.settings-hub-card')->render();
+            return view($this->ns . '::partials.settings-hub-card')->render();
         });
     }
 }

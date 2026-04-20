@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Simple Polls — Contensio plugin.
+ * Simple Polls - Contensio plugin.
  * https://contensio.com
  *
  * @copyright   Copyright (c) 2026 Iosif Gabriel Chimilevschi
@@ -14,7 +14,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class PollVote extends Model
 {
-    protected $table = 'poll_votes';
+    protected $table = 'contensio_poll_votes';
 
     public $timestamps = false;
 

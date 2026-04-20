@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Simple Polls — Contensio plugin.
+ * Simple Polls - Contensio plugin.
  * https://contensio.com
  *
  * @copyright   Copyright (c) 2026 Iosif Gabriel Chimilevschi
@@ -23,12 +23,12 @@ class PollController extends Controller
             ->latest()
             ->paginate(30);
 
-        return view('polls::admin.index', compact('polls'));
+        return view('contensio-polls::admin.index', compact('polls'));
     }
 
     public function create()
     {
-        return view('polls::admin.form', ['poll' => null]);
+        return view('contensio-polls::admin.form', ['poll' => null]);
     }
 
     public function store(Request $request)
@@ -45,14 +45,14 @@ class PollController extends Controller
 
         $this->syncOptions($poll, $data['options']);
 
-        return redirect()->route('polls.index')->with('success', 'Poll created.');
+        return redirect()->route('contensio-polls.index')->with('success', 'Poll created.');
     }
 
     public function edit(int $id)
     {
         $poll = Poll::with('options')->findOrFail($id);
 
-        return view('polls::admin.form', compact('poll'));
+        return view('contensio-polls::admin.form', compact('poll'));
     }
 
     public function update(Request $request, int $id)
@@ -70,7 +70,7 @@ class PollController extends Controller
 
         $this->syncOptions($poll, $data['options']);
 
-        return redirect()->route('polls.index')->with('success', 'Poll updated.');
+        return redirect()->route('contensio-polls.index')->with('success', 'Poll updated.');
     }
 
     public function destroy(int $id)
@@ -85,7 +85,7 @@ class PollController extends Controller
         $poll    = Poll::with('options')->withCount('votes')->findOrFail($id);
         $results = $poll->buildResults();
 
-        return view('polls::admin.results', compact('poll', 'results'));
+        return view('contensio-polls::admin.results', compact('poll', 'results'));
     }
 
     // ── Private helpers ───────────────────────────────────────────────────────

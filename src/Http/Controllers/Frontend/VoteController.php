@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Simple Polls — Contensio plugin.
+ * Simple Polls - Contensio plugin.
  * https://contensio.com
  *
  * @copyright   Copyright (c) 2026 Iosif Gabriel Chimilevschi
@@ -59,7 +59,7 @@ class VoteController extends Controller
                 'ip_address' => $request->ip(),
             ]);
         } catch (\Illuminate\Database\QueryException $e) {
-            // Unique constraint — already voted (race condition)
+            // Unique constraint - already voted (race condition)
             return response()->json(['error' => 'You have already voted.'], 422);
         }
 

@@ -10,7 +10,7 @@
             <h1 class="text-2xl font-bold text-gray-900">Polls</h1>
             <p class="mt-1 text-gray-500">Create and manage polls on your site.</p>
         </div>
-        <a href="{{ route('polls.create') }}"
+        <a href="{{ route('contensio-polls.create') }}"
            class="inline-flex items-center gap-2 bg-ember-500 hover:bg-ember-600 text-white font-semibold text-sm px-4 py-2.5 rounded-lg transition-colors">
             <i class="bi bi-plus-lg"></i>
             New poll
@@ -28,7 +28,7 @@
         <i class="bi bi-bar-chart-steps text-4xl mb-3 block"></i>
         <p class="text-lg font-medium text-gray-500">No polls yet</p>
         <p class="text-sm mt-1 mb-5">Create your first poll and embed it anywhere on your site.</p>
-        <a href="{{ route('polls.create') }}"
+        <a href="{{ route('contensio-polls.create') }}"
            class="inline-flex items-center gap-2 bg-ember-500 hover:bg-ember-600 text-white font-semibold text-sm px-4 py-2 rounded-lg transition-colors">
             <i class="bi bi-plus-lg"></i> Create a poll
         </a>
@@ -60,13 +60,13 @@
                         'always'      => 'Always',
                         'after_vote'  => 'After voting',
                         'after_close' => 'After closing',
-                        default       => '—',
+                        default       => '-',
                     };
                 @endphp
                 <tr class="hover:bg-gray-50 transition-colors">
                     <td class="px-5 py-3.5 font-medium text-gray-900 max-w-xs">
                         <span class="line-clamp-2">{{ $poll->question }}</span>
-                        <p class="text-xs text-gray-400 mt-0.5">ID: {{ $poll->id }} · Embed: <code class="font-mono">@{{include('polls::partials.poll', ['pollId' => {{ $poll->id }}])}}</code></p>
+                        <p class="text-xs text-gray-400 mt-0.5">ID: {{ $poll->id }} · Embed: <code class="font-mono">@{{include('contensio-polls::partials.poll', ['pollId' => {{ $poll->id }}])}}</code></p>
                     </td>
                     <td class="px-5 py-3.5">
                         <span class="inline-block text-xs font-semibold px-2.5 py-1 rounded-full {{ $badgeClass }}">
@@ -76,19 +76,19 @@
                     <td class="px-5 py-3.5 text-gray-700 font-semibold">{{ number_format($poll->votes_count) }}</td>
                     <td class="px-5 py-3.5 text-gray-500">{{ $showLabel }}</td>
                     <td class="px-5 py-3.5 text-gray-500 whitespace-nowrap">
-                        {{ $poll->ends_at ? $poll->ends_at->format('M j, Y H:i') : '—' }}
+                        {{ $poll->ends_at ? $poll->ends_at->format('M j, Y H:i') : '-' }}
                     </td>
                     <td class="px-5 py-3.5">
                         <div class="flex items-center justify-end gap-2">
-                            <a href="{{ route('polls.results', $poll->id) }}"
+                            <a href="{{ route('contensio-polls.results', $poll->id) }}"
                                class="text-gray-400 hover:text-ember-600 transition-colors" title="Results">
                                 <i class="bi bi-bar-chart text-base"></i>
                             </a>
-                            <a href="{{ route('polls.edit', $poll->id) }}"
+                            <a href="{{ route('contensio-polls.edit', $poll->id) }}"
                                class="text-gray-400 hover:text-ember-600 transition-colors" title="Edit">
                                 <i class="bi bi-pencil text-base"></i>
                             </a>
-                            <form method="POST" action="{{ route('polls.destroy', $poll->id) }}"
+                            <form method="POST" action="{{ route('contensio-polls.destroy', $poll->id) }}"
                                   onsubmit="return confirm('Delete this poll and all its votes?')">
                                 @csrf @method('DELETE')
                                 <button type="submit" class="text-gray-400 hover:text-red-600 transition-colors" title="Delete">

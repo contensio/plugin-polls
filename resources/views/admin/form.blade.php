@@ -11,7 +11,7 @@
      }">
 
     <div class="flex items-center gap-3 mb-6">
-        <a href="{{ route('polls.index') }}" class="text-gray-400 hover:text-gray-600 transition-colors">
+        <a href="{{ route('contensio-polls.index') }}" class="text-gray-400 hover:text-gray-600 transition-colors">
             <i class="bi bi-arrow-left text-lg"></i>
         </a>
         <h1 class="text-2xl font-bold text-gray-900">
@@ -28,7 +28,7 @@
     @endif
 
     <form method="POST"
-          action="{{ $poll ? route('polls.update', $poll->id) : route('polls.store') }}"
+          action="{{ $poll ? route('contensio-polls.update', $poll->id) : route('contensio-polls.store') }}"
           class="space-y-6">
         @csrf
         @if($poll) @method('PUT') @endif
@@ -124,7 +124,7 @@
         </div>
 
         <div class="flex items-center justify-between">
-            <a href="{{ route('polls.index') }}" class="text-sm text-gray-500 hover:text-gray-700">Cancel</a>
+            <a href="{{ route('contensio-polls.index') }}" class="text-sm text-gray-500 hover:text-gray-700">Cancel</a>
             <button type="submit"
                     class="bg-ember-500 hover:bg-ember-600 text-white font-semibold px-6 py-2.5 rounded-lg transition-colors">
                 {{ $poll ? 'Save changes' : 'Create poll' }}

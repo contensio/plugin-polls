@@ -8,7 +8,7 @@ return new class extends Migration
 {
     public function up(): void
     {
-        Schema::create('polls', function (Blueprint $table) {
+        Schema::create('contensio_polls', function (Blueprint $table) {
             $table->id();
             $table->string('question', 500);
             $table->enum('status', ['draft', 'active', 'closed'])->default('active')->index();
@@ -18,9 +18,9 @@ return new class extends Migration
             $table->timestamps();
         });
 
-        Schema::create('poll_options', function (Blueprint $table) {
+        Schema::create('contensio_poll_options', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('poll_id')->constrained('polls')->cascadeOnDelete();
+            $table->foreignId('poll_id')->constrained('contensio_polls')->cascadeOnDelete();
             $table->string('label', 300);
             $table->unsignedSmallInteger('sort_order')->default(0);
             $table->timestamps();
@@ -28,10 +28,10 @@ return new class extends Migration
             $table->index(['poll_id', 'sort_order']);
         });
 
-        Schema::create('poll_votes', function (Blueprint $table) {
+        Schema::create('contensio_poll_votes', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('poll_id')->constrained('polls')->cascadeOnDelete();
-            $table->foreignId('option_id')->constrained('poll_options')->cascadeOnDelete();
+            $table->foreignId('poll_id')->constrained('contensio_polls')->cascadeOnDelete();
+            $table->foreignId('option_id')->constrained('contensio_poll_options')->cascadeOnDelete();
             $table->unsignedBigInteger('user_id')->nullable()->index();
             $table->string('ip_address', 45);
             $table->timestamp('created_at')->useCurrent();
@@ -45,8 +45,8 @@ return new class extends Migration
 
     public function down(): void
     {
-        Schema::dropIfExists('poll_votes');
-        Schema::dropIfExists('poll_options');
-        Schema::dropIfExists('polls');
+        Schema::dropIfExists('contensio_poll_votes');
+        Schema::dropIfExists('contensio_poll_options');
+        Schema::dropIfExists('contensio_polls');
     }
 };

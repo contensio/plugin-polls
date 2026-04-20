@@ -4,7 +4,7 @@
     "description": "Create polls with multiple options. One vote per IP or logged-in user. Live results shown as a bar chart after voting.",
     "author": "Contensio",
     "author_url": "https://contensio.com",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "provider": "Contensio\\Polls\\PollsServiceProvider",
     "autoload": {
         "psr-4": {
@@ -18,7 +18,7 @@
         "placement": "tools",
         "label": "Polls",
         "icon": "bi-bar-chart-steps",
-        "route": "polls.index",
+        "route": "contensio-polls.index",
         "permission": "plugins.configure"
     },
     "removable": true

@@ -6,7 +6,7 @@
 <div class="p-6 max-w-2xl">
 
     <div class="flex items-center gap-3 mb-6">
-        <a href="{{ route('polls.index') }}" class="text-gray-400 hover:text-gray-600 transition-colors">
+        <a href="{{ route('contensio-polls.index') }}" class="text-gray-400 hover:text-gray-600 transition-colors">
             <i class="bi bi-arrow-left text-lg"></i>
         </a>
         <div>
@@ -71,11 +71,11 @@
 
     {{-- Actions --}}
     <div class="mt-6 flex gap-3">
-        <a href="{{ route('polls.edit', $poll->id) }}"
+        <a href="{{ route('contensio-polls.edit', $poll->id) }}"
            class="inline-flex items-center gap-2 border border-gray-300 bg-white hover:bg-gray-50 text-gray-700 text-sm font-medium px-4 py-2 rounded-lg transition-colors">
             <i class="bi bi-pencil"></i> Edit poll
         </a>
-        <form method="POST" action="{{ route('polls.destroy', $poll->id) }}"
+        <form method="POST" action="{{ route('contensio-polls.destroy', $poll->id) }}"
               onsubmit="return confirm('Delete this poll and all {{ $results['total'] }} votes?')">
             @csrf @method('DELETE')
             <button type="submit"

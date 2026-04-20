@@ -1,6 +1,6 @@
 {
     "name": "contensio/plugin-polls",
-    "description": "Simple polls for Contensio — multiple options, one vote per IP/user, live results with bar chart.",
+    "description": "Simple polls for Contensio - multiple options, one vote per IP/user, live results with bar chart.",
     "type": "library",
     "license": "AGPL-3.0-or-later",
     "keywords": ["contensio", "plugin", "polls", "voting", "survey"],

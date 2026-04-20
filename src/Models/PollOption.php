@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Simple Polls — Contensio plugin.
+ * Simple Polls - Contensio plugin.
  * https://contensio.com
  *
  * @copyright   Copyright (c) 2026 Iosif Gabriel Chimilevschi
@@ -14,7 +14,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class PollOption extends Model
 {
-    protected $table = 'poll_options';
+    protected $table = 'contensio_poll_options';
 
     protected $fillable = ['poll_id', 'label', 'sort_order'];
 
